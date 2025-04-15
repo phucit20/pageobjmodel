@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Page Object test example" >
+    <test name="sampletest" parallel="methods" thread-count="2">
+        <classes>
+            <class name="com.tester.testcases.SignInTest"></class>
+        </classes>
+    </test>
+</suite>
