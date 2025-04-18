@@ -13,17 +13,22 @@ public class ITestListener implements org.testng.ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         ExtentReport.getTest().pass("Test pass");
+        try{
+            ExtentReport.addScreenShot(result.getName());
+        } catch (Exception e) {
+            System.out.println("Capture Screenshot:"+ e.getMessage());
+        }
 
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         ExtentReport.getTest().fail("Test fail");
-        try {
-            ExtentReport.addScreenShot(result.getName()); // Chụp ảnh khi Pass TC
-        } catch (IOException e) {
-            System.err.println("Pass TC to capture screenshot: " + e.getMessage());
-        }
+//        try {
+//            ExtentReport.addScreenShot(result.getName()); // Chụp ảnh khi Pass TC
+//        } catch (IOException e) {
+//            System.err.println("Capture screenshot: " + e.getMessage());
+//        }
     }
 
     @Override
